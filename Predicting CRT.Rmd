@@ -103,13 +103,13 @@ fit = lm(time ~ radius + texture + smoothness + compactness + concavity + symmet
 ```
 ## Building the Model
 
-To determine which variables are best suited for predicting the Y values (time), we will perform a stepwise regression using the ???step??? function in R. The resulting best fitting model is given as follows, using the AIC as a criterion:
+To determine which variables are best suited for predicting the Y values (time), we will perform a stepwise regression using the step() function in R. The resulting best fitting model is given as follows, using the AIC as a criterion:
 
 $$ (Time)_i = \beta_0 +  \beta_1(Radius)_i +  \beta_2(Smoothness)_i +  \beta_3(Compactness)_i +  \beta_4(Symmetry)_i + \epsilon_i $$
 
 Further information on the model can be found in the appendix.
 
-As mentioned above, we also performed best subsets regression using the ???leaps??? package in R and found that the same exact model yielded the highest adjusted R-squared value. Therefore, we continued with this model for the rest of our analysis.
+As mentioned above, we also performed best subsets regression using the "leaps" package in R and found that the same exact model yielded the highest adjusted R-squared value. Therefore, we continued with this model for the rest of our analysis.
 
 
 ```{r update, include=FALSE}
@@ -151,7 +151,7 @@ abline(0,0, col = "blue")
 
 With this plot we can (subjectively) judge that the residuals "bounce randomly" around the 0 line, indicating that our expectation function is linear.
 
-2)	"I" - Independence of the errors by analyzing the ???residual vs order??? plot, and looking for a random pattern that implies independence. However, since it is not known the order in which the data was collected, we must simply assume that the errors are independent of each other, and free of serial correlation.
+2)	"I" - Independence of the errors by analyzing the "residual vs order" plot, and looking for a random pattern that implies independence. However, since it is not known the order in which the data was collected, we must simply assume that the errors are independent of each other, and free of serial correlation.
 
 3)	"N" - Normally distributed errors using the normal Q-Q plot of the residuals, and checking that the resulting plot is approximately linear. 
 
@@ -189,13 +189,13 @@ To further investigate the relationship between radius with the response, we est
 # Conclusion
 In conclusion, our regression analysis has shown that the time until the recurrence of breast cancer (in months) is slightly influenced by the radius, smoothness, compactness, and symmetry of the cell nuclei in the breast mass images. While we lacked conclusive evidence of a strong relationship between our response and predictor variables, it is apparent that there is still a relationship between the variables that we are able to use to predict the time until recurrence. 
 From our hypothesis tests described above, we concluded that with our regression model, radius (the mean radius of all cell nuclei present in the image) is a significant predictor of time until recurrence. Furthermore, the slope coefficient was estimated to be a negative value of relatively small magnitude; this indicates that for every unit increase in radius, the time until recurrence decreased by a small amount.
-Since the observations of our data were taken during follow ups, it is possible that the time since recurrence was not precise in when cancer cells began to recur. Also, it is possible that for non-recurrence patients, recurrence took place after the follow up and  the study was not able to accurately collect data. Thus, the addition of another follow up study may be beneficial in order to improve our regression analysis model. We also acknowledge that leaving out non-recurrent cases in our analysis may have been detrimental, as patients may still experience recurrence after the time the data was collected. Also, the event of patients not experiencing recurrence events may depend on our chosen predictors as well. Therefore, in possible future studies we would like to include ???recurrence or non-recurrence (at time of study)??? as a possible categorical predictor.
+Since the observations of our data were taken during follow ups, it is possible that the time since recurrence was not precise in when cancer cells began to recur. Also, it is possible that for non-recurrence patients, recurrence took place after the follow up and  the study was not able to accurately collect data. Thus, the addition of another follow up study may be beneficial in order to improve our regression analysis model. We also acknowledge that leaving out non-recurrent cases in our analysis may have been detrimental, as patients may still experience recurrence after the time the data was collected. Also, the event of patients not experiencing recurrence events may depend on our chosen predictors as well. Therefore, in possible future studies we would like to include "recurrence or non-recurrence (at time of study)" as a possible categorical predictor.
 
 # References
 
 Dua, D. and Graff, C. (2019). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.
 
-Hamilton, D. F., Ghert, M., & Simpson, A. H. R. W. (2015). Interpreting regression models in clinical outcome studies. Bone & Joint Research, 4(9), 152???153. doi: 10.1302/2046-3758.49.2000571
+Hamilton, D. F., Ghert, M., & Simpson, A. H. R. W. (2015). Interpreting regression models in clinical outcome studies. Bone & Joint Research, 4(9), 152-153. doi: 10.1302/2046-3758.49.2000571
 
 # Appendix
 Stepwise Regression 
